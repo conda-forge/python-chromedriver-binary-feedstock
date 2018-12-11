@@ -1,6 +1,6 @@
 {% set name = "python-chromedriver-binary" %}
-{% set version = "2.44.0" %}
-{% set sha256 = "13c750017a8d618709b0e1b49f7e23f555255ad0fb726788725804e22ac530e0" %}
+{% set version = "2.45.0" %}
+{% set sha256 = "d39f928d96e9d939dfc19fe8e4c8d18a7fb81f63940ed6a8e2b7263c1d0a7d0d" %}
 
 package:
   name: {{ name|lower }}
