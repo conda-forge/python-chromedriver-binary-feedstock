@@ -26,6 +26,7 @@ requirements:
     - pip
   run:
     - python
+    - setuptools
 
 test:
   imports:
