@@ -29,9 +29,10 @@ requirements:
     - setuptools
 
 test:
+  requires:
+    - xorg-libx11  # [unix]
   imports:
     - chromedriver_binary
-    - xorg-libx11  # [unix]
   commands:
     - chromedriver-path
     - PATH=$(chromedriver-path) chromedriver --version  # [unix]
