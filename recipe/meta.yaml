@@ -1,7 +1,6 @@
 {% set name = "python-chromedriver-binary" %}
 {% set version = "2.45.0" %}
 {% set chromedriver_version = ".".join(version.split(".")[:2]) %}
-{% set sha256 = "" %}
 
 package:
   name: {{ name|lower }}
@@ -21,7 +20,6 @@ build:
   number: 1001
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vv
 
-
 requirements:
   host:
     - python
@@ -30,8 +28,6 @@ requirements:
     - python
 
 test:
-  requires:
-    - setuptools
   imports:
     - chromedriver_binary
   commands:
