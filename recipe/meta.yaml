@@ -31,6 +31,7 @@ requirements:
 test:
   requires:
     - xorg-libx11  # [unix]
+    - glib >=2.14  # [unix]
   imports:
     - chromedriver_binary
   commands:
