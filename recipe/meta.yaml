@@ -19,7 +19,7 @@ source:
 build:
   number: 1001
   script:
-    - chmod +x chromedriver  #[unix]
+    - chmod +x chromedriver  # [unix]
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vv
 
 requirements:
