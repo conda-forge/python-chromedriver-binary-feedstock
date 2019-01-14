@@ -5,7 +5,9 @@ import sys
 # it doesn't appear they do patch releases
 CHROMEDRIVER_VERSION = ".".join(os.environ["PKG_VERSION"].split(".")[:2])
 
-path = subprocess.check_output(["chromedriver-path"]).decode("utf-8").strip()
+path = str(
+    subprocess.check_output(["chromedriver-path"]).decode("utf-8").strip()
+)
 
 
 if sys.platform.startswith("linux"):
@@ -21,14 +23,16 @@ if sys.platform.startswith("linux"):
         assert (CHROMEDRIVER_VERSION + ".").encode("utf-8") in fp.read(), \
             "version string doesn't appear in content of: " + bin
 else:
+    bin = os.path.join(path, "chromedriver")
+
+    if sys.platform == "win32":
+        bin += ".exe"
+
     # test if the command executes, and capture the output
-    output = subprocess.check_output(
-        ["chromedriver", "--version"],
-        env=dict(PATH=path)
-    ).decode("utf-8")
+    output = subprocess.check_output([bin, "--version"]).decode("utf-8")
 
     # test that we got a version that matches the upstream
-    assert output.startswith("ChromeDriver " + CHROMEDRIVER_VERSION + "."), \
+    assert (("ChromeDriver " + CHROMEDRIVER_VERSION + ".") in output), \
         "version string doesn't appear in: " + output
 
 # finally test weird $PATH side-effect behavior
