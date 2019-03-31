@@ -12,7 +12,7 @@ source:
   - url: https://chromedriver.storage.googleapis.com/{{ chromedriver_version }}/chromedriver_linux64.zip  # [linux]
     sha256: 258830acdfd1273c47dd06defa92e37944d5379fb74c3bc9cc6dddbfd9b1d26e  # [linux]
   - url: https://chromedriver.storage.googleapis.com/{{ chromedriver_version }}/chromedriver_mac64.zip  # [osx]
-    sha256: eaaa1b0b7d47b113d228ca99a5d68de52f660ccd9dd78a069df8cd97ff83308a # [osx]
+    sha256: eaaa1b0b7d47b113d228ca99a5d68de52f660ccd9dd78a069df8cd97ff83308a  # [osx]
   - url: https://chromedriver.storage.googleapis.com/{{ chromedriver_version }}/chromedriver_win32.zip  # [win]
     sha256: 8a1f37de201d406f6aeb4a21e81311b685356c6d2ac16512008ba5322939bf69  # [win]
 
