@@ -10,11 +10,11 @@ source:
   - url: https://github.com/danielkaiser/{{ name }}/archive/v{{ version }}.tar.gz
     sha256: a6c4abc912261fd06f818205500bc41d4af2c1dd9de7d2c9441d08657a4af1b0
   - url: https://chromedriver.storage.googleapis.com/{{ chromedriver_version }}/chromedriver_linux64.zip  # [linux]
-    sha256: 258830acdfd1273c47dd06defa92e37944d5379fb74c3bc9cc6dddbfd9b1d26e  # [linux]
+    sha256: ec9dbe021338f0befaecca702abc576cb7cc31a2f5a852c2c41e94721af5d3ad  # [linux]
   - url: https://chromedriver.storage.googleapis.com/{{ chromedriver_version }}/chromedriver_mac64.zip  # [osx]
-    sha256: eaaa1b0b7d47b113d228ca99a5d68de52f660ccd9dd78a069df8cd97ff83308a  # [osx]
+    sha256: b4b73681404d231d81a9b7ab9d4f0cb090f3e69240296eca2eb46e2629519152  # [osx]
   - url: https://chromedriver.storage.googleapis.com/{{ chromedriver_version }}/chromedriver_win32.zip  # [win]
-    sha256: 8a1f37de201d406f6aeb4a21e81311b685356c6d2ac16512008ba5322939bf69  # [win]
+    sha256: 9d1088968f645f39234b149201507d0f09c818880ba908ddbb279d352ed9dc58  # [win]
 
 build:
   number: 0
