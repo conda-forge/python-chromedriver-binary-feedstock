@@ -1,7 +1,6 @@
 import subprocess
 import os
 import sys
-import platform
 
 PATH_BIN = "chromedriver-path"
 BIN = "chromedriver"
@@ -9,15 +8,13 @@ BIN = "chromedriver"
 # it doesn't appear they do patch releases
 VERSION = ".".join(os.environ["PKG_VERSION"].split(".")[:2])
 
-if subprocess.call([PATH_BIN]) != 0:
+if subprocess.Popen([PATH_BIN]).wait() != 0:
     print("Couldn't even call " + PATH_BIN)
     sys.exit(1)
 
 path = str(
     subprocess.check_output([PATH_BIN]).decode("utf-8").strip()
 )
-
-print("sys.platform is " + sys.platform + ", platform.system is " + platform.system())
 
 if sys.platform.startswith("linux"):
     # on conda-forge builds, glibc is too old. just look at the thing.

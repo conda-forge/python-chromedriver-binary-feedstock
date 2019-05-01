@@ -20,7 +20,9 @@ build:
   number: 0
   script:
     - chmod +x chromedriver  # [unix]
-    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vv
+    - "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vv"
+  entry_points:
+    - chromedriver-path = chromedriver_binary.utils:print_chromedriver_path
 
 requirements:
   host:
