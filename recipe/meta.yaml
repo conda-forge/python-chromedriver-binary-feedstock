@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://github.com/danielkaiser/{{ name }}/archive/v{{ version }}.tar.gz
-    sha256: ba21e55d42750a6e99b3c90e921bfd67c21b673ec312f92d2e3883f446eba0ce
+    sha256: f62f791d89148f0ee61581f169fbb2637df321e45345a1c79645a10d160e81d7
   - url: https://chromedriver.storage.googleapis.com/{{ chromedriver_version }}/chromedriver_linux64.zip  # [linux]
     sha256: d3b15540c193bf09058d624310e5230f5584253ffaa71999cc4deab7a3102295  # [linux]
   - url: https://chromedriver.storage.googleapis.com/{{ chromedriver_version }}/chromedriver_mac64.zip  # [osx]
