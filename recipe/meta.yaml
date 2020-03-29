@@ -1,5 +1,5 @@
 {% set name = "python-chromedriver-binary" %}
-{% set version = "80.0.3987.106.0" %}
+{% set version = "81.0.4044.69.0" %}
 {% set chromedriver_version = version[:-2] %}
 
 package:
@@ -8,19 +8,19 @@ package:
 
 source:
   - url: https://github.com/danielkaiser/{{ name }}/archive/v{{ version }}.tar.gz
-    sha256: 8a66e10067f67ff34d62b51b32d4c1d32417ab18efc1517a304db80dc6fff410
+    sha256: 7fac00cd75928ab694a264245670b920480e0ac88b060f3efcff85020023d87e
   - url: https://chromedriver.storage.googleapis.com/{{ chromedriver_version }}/chromedriver_linux64.zip  # [linux]
-    sha256: 98a2a6ea64d26ca04e49b859ad425bb4c3176df52a5eec0765aee12b14c3d861  # [linux]
+    sha256: 9117ecd1e7bc5c7023a00715ca2ba642a1c6b27bb7be2ef7c3aed9289f551ad7  # [linux]
   - url: https://chromedriver.storage.googleapis.com/{{ chromedriver_version }}/chromedriver_mac64.zip  # [osx]
-    sha256: 4e74140a26a9eea5a5ca1e9bdc9ab2997f18ad2978a278a199a6204fb03b2b09  # [osx]
+    sha256: 2172bb9be60f2dbe69ad00f707a72de6b75882403f2de7fcb031aa329770cda3  # [osx]
   - url: https://chromedriver.storage.googleapis.com/{{ chromedriver_version }}/chromedriver_win32.zip  # [win]
-    sha256: e6de5ce55b761b46a2c34081c11fa5ed61a52ef5e99c9d161e543c5fb0178e1b  # [win]
+    sha256: 1ed616c31c7c516c5b6b725612ca555b6677562e7601ba97b72484b525523e68  # [win]
 
 build:
-  number: 1
+  number: 0
   script:
     - chmod +x chromedriver  # [unix]
-    - "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vv"
+    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vv
   entry_points:
     - chromedriver-path = chromedriver_binary.utils:print_chromedriver_path
 
@@ -43,7 +43,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Downloads and installs the chromedriver binary version'
+  summary: Downloads and installs the chromedriver binary version
   description: |
     Downloads and installs the chromedriver binary for automated
     testing of webapps. The installer supports Linux, MacOS and Windows
