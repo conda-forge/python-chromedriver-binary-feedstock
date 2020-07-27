@@ -5,7 +5,7 @@ Home: https://github.com/danielkaiser/python-chromedriver-binary
 
 Package license: MIT
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Downloads and installs the chromedriver binary version
 
