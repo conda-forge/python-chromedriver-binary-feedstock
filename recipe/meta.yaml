@@ -1,5 +1,5 @@
 {% set name = "python-chromedriver-binary" %}
-{% set version = "86.0.4240.22.0" %}
+{% set version = "87.0.4280.20.0" %}
 {% set chromedriver_version = version[:-2] %}
 
 package:
@@ -8,16 +8,16 @@ package:
 
 source:
   - url: https://github.com/danielkaiser/{{ name }}/archive/v{{ version }}.tar.gz
-    sha256: 931a9c357b40c82f18930b633c4bdabc146156b94737d503648caf8b3b508671
+    sha256: 23cfd658619cb676f194de4db84e09ae6f812ea87906931278fcef59486e8b3b
   - url: https://chromedriver.storage.googleapis.com/{{ chromedriver_version }}/chromedriver_linux64.zip  # [linux]
-    sha256: d498eaacc414adbaf638333b59390cdfea5d780f941f57f41fd90280df78b159  # [linux]
+    sha256: a3248aa7308727fe1116b7e937511c3486b4efd45da9c50e3b6a7c31563df3b2  # [linux]
   - url: https://chromedriver.storage.googleapis.com/{{ chromedriver_version }}/chromedriver_mac64.zip  # [osx]
-    sha256: 351ae30e9feab7ca6ccb94a549afcd62d6355561b78b8386cd4271d480a2fdc6  # [osx]
+    sha256: 99e98317a5f883d53973a044778f81abe71b42c570fb35f75786f86ea617bd1a  # [osx]
   - url: https://chromedriver.storage.googleapis.com/{{ chromedriver_version }}/chromedriver_win32.zip  # [win]
-    sha256: 89a40eca457cbfc098af4bbb4342e697c90284c841bc72d3363ce7007673826b  # [win]
+    sha256: 0aba7f547ea4941169a9a0b4e3463459900a3d3ae74e2f5646ed732c0c40598b  # [win]
 
 build:
-  number: 1
+  number: 0
   script:
     - chmod +x chromedriver  # [unix]
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vv
