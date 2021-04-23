@@ -151,6 +151,7 @@ Installing `python-chromedriver-binary` from the `conda-forge` channel can be ac
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
 Once the `conda-forge` channel has been enabled, `python-chromedriver-binary` can be installed with:
