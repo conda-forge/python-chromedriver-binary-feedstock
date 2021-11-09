@@ -23,6 +23,7 @@ build:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vv
   entry_points:
     - chromedriver-path = chromedriver_binary.utils:print_chromedriver_path
+  binary_relocation: False  # [osx]
 
 requirements:
   host:
@@ -37,6 +38,7 @@ test:
     - chromedriver_binary
   commands:
     - chromedriver-path
+    - $(chromedriver-path) --version  # [unix]
 
 about:
   home: https://github.com/danielkaiser/python-chromedriver-binary
