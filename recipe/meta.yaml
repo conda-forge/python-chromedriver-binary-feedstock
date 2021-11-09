@@ -38,7 +38,8 @@ test:
     - chromedriver_binary
   commands:
     - chromedriver-path
-    - $(chromedriver-path)/chromedriver --version  # [unix]
+    # TODO: investigate on linux, (at least) libxcb is missing... 
+    - $(chromedriver-path)/chromedriver --version  # [osx]
 
 about:
   home: https://github.com/danielkaiser/python-chromedriver-binary
