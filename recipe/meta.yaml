@@ -38,7 +38,7 @@ test:
     - chromedriver_binary
   commands:
     - chromedriver-path
-    - $(chromedriver-path) --version  # [unix]
+    - $(chromedriver-path)/chromedriver --version  # [unix]
 
 about:
   home: https://github.com/danielkaiser/python-chromedriver-binary
