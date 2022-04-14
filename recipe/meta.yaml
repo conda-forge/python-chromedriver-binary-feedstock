@@ -17,7 +17,7 @@ source:
     sha256: a508a07abced4b34aff1e1e0a7a1d9202d07af43a1f6f39265546f9254ac4912  # [win]
 
 build:
-  number: 0
+  number: 1
   script:
     - chmod +x chromedriver  # [unix]
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vv
