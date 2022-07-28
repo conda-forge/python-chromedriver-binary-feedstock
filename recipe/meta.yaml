@@ -1,5 +1,5 @@
 {% set name = "python-chromedriver-binary" %}
-{% set version = "104.0.5112.29.0" %}
+{% set version = "104.0.5112.29.1" %}
 {% set chromedriver_version = version[:-2] %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://github.com/danielkaiser/{{ name }}/archive/v{{ version }}.tar.gz
-    sha256: 4af0c53ae134cd07070056bbd135200072c2a5335003ffd13dfe64eb4c15c01e
+    sha256: f99eb391824ea2a65e9b9161854ee63ca3f6f821aed77e45be5c47ecfabc2067
   - url: https://chromedriver.storage.googleapis.com/{{ chromedriver_version }}/chromedriver_linux64.zip  # [linux]
     sha256: 365d85bdbce63487f8be6b72a0d809be9fe885e945f6e646696c71537b809244  # [linux]
   - url: https://chromedriver.storage.googleapis.com/{{ chromedriver_version }}/chromedriver_mac64.zip  # [osx]
