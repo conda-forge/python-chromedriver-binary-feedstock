@@ -9,12 +9,12 @@ package:
 source:
   - url: https://github.com/danielkaiser/{{ name }}/archive/v{{ version }}.tar.gz
     sha256: 84e025b92329d4a279a5c3014be544f8d8b76d78d283cb2638669df659fcc5dd 
-  - url: https://chromedriver.storage.googleapis.com/{{ chromedriver_version }}/chromedriver_linux64.zip  # [linux]
-    sha256: a7787ef8b139170cab4abfca4a0284fd5d006bfd979624b4af25b64d583a6f44  # [linux]
-  - url: https://chromedriver.storage.googleapis.com/{{ chromedriver_version }}/chromedriver_mac64.zip  # [osx]
-    sha256: 6abdc9d358c2bc4668bef7b23048de2a9dbd3ad82cfbc6dfe322e74d4cff1650  # [osx]
-  - url: https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/{{ chromedriver_version }}/win32/chrome-win32.zip  # [win]
-    sha256: 7a6b4694afdb735468694d0ecaab173e095d76e226dca85f4f528364a1d6cb3f  # [win]
+  - url:  https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/{{ chromedriver_version }}/linux64/chromedriver-linux64.zip  # [linux]
+    sha256: da8e8b028da912c0a2d5ec4fbf59c4324d93925861e3d53259a628c90ec37ff6  # [linux]
+  - url: https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/{{ chromedriver_version }}/mac-x64/chromedriver-mac-x64.zip  # [osx]
+    sha256: b11014f51240373f92a2fea86a865ab0ca1aa8cfa62194836da83ddb05ec5422  # [osx]
+  - url: https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/{{ chromedriver_version }}/win32/chromedriver-win32.zip  # [win]
+    sha256: 6bc80a3203e83624ae9dd282f9684b133e820f97f73e2404b7988c566c9e06aa  # [win]
 
 build:
   number: 0
