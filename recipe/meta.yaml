@@ -1,5 +1,5 @@
 {% set name = "python-chromedriver-binary" %}
-{% set version = "114.0.5735.90.0" %}
+{% set version = "119.0.6045.105.0" %}
 {% set chromedriver_version = version[:-2] %}
 
 package:
@@ -13,11 +13,11 @@ source:
     sha256: a7787ef8b139170cab4abfca4a0284fd5d006bfd979624b4af25b64d583a6f44  # [linux]
   - url: https://chromedriver.storage.googleapis.com/{{ chromedriver_version }}/chromedriver_mac64.zip  # [osx]
     sha256: 6abdc9d358c2bc4668bef7b23048de2a9dbd3ad82cfbc6dfe322e74d4cff1650  # [osx]
-  - url: https://chromedriver.storage.googleapis.com/{{ chromedriver_version }}/chromedriver_win32.zip  # [win]
-    sha256: 40d1f1f023b6c38ceb27e8a179e75d6b2f9cc1c55bd9935b12b09fa83f8a7bde  # [win]
+  - url: https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/{{ chromedriver_version }}/win32/chrome-win32.zip  # [win]
+    sha256: 7a6b4694afdb735468694d0ecaab173e095d76e226dca85f4f528364a1d6cb3f  # [win]
 
 build:
-  number: 1
+  number: 0
   script:
     - chmod +x chromedriver  # [unix]
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vv
