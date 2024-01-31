@@ -1,5 +1,5 @@
 {% set name = "python-chromedriver-binary" %}
-{% set version = "123.0.6269.0.0" %}
+{% set version = "123.0.6271.0.0" %}
 {% set chromedriver_version = version[:-2] %}
 
 package:
@@ -8,13 +8,13 @@ package:
 
 source:
   - url: https://github.com/danielkaiser/{{ name }}/archive/v{{ version }}.tar.gz
-    sha256: af1425e35d363892280e2570b510cb9f26752fdb361af03a7f9cbe499f172667
+    sha256: 2aa1827819dce467472ee410e2cb59f20c7faf63d95b66f8ecb3169fb2253fb7
   - url: https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/{{ chromedriver_version }}/linux64/chromedriver-linux64.zip  # [linux]
-    sha256: 50ca4414e5bfa4b95ac6516ec8a472fa825c4fbe7f2f744178c4f8f12263c987  # [linux]
+    sha256: 18099ee5d0ebfc5af17125369806ecca4a44002aaa51086b6a90a28e0a3b692b  # [linux]
   - url: https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/{{ chromedriver_version }}/mac-x64/chromedriver-mac-x64.zip  # [osx]
-    sha256: 53e3e3312f2650b4460f71f0911e06437cf835bf72d5f83486c03e9d5633a257  # [osx]
+    sha256: a6f8be1668699de4d2b17772baca879517b1bd2c8b692d394e7c0f6d6c63b005  # [osx]
   - url: https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/{{ chromedriver_version }}/win32/chromedriver-win32.zip  # [win]
-    sha256: 027a3423d636b809c2474cf09182665421fc295a38a8e7fbafac6d0b7b95ec97  # [win]
+    sha256: 8daff79510743cbf11b226b34ffdcabcd67e09467da32fad38663c7ca81da745  # [win]
 
 build:
   number: 0
