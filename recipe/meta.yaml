@@ -35,17 +35,20 @@ build:
 
 requirements:
   host:
-    - python >=3.7
     - pip
+    - python >=3.7
     - setuptools
   run:
     - __{{ noarch_platform }}
     - python >=3.7
 
 test:
+  requires:
+    - pip
   imports:
     - chromedriver_binary
   commands:
+    - pip check
     - chromedriver-path
     # TODO: investigate on linux, (at least) libxcb is missing...
     {% if noarch_platform == "osx" %}
