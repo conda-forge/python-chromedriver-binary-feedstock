@@ -1,45 +1,59 @@
-{% set name = "python-chromedriver-binary" %}
 {% set version = "130.0.6704.0.0" %}
 {% set chromedriver_version = version[:-2] %}
 
 package:
-  name: {{ name|lower }}
+  name: python-chromedriver-binary
   version: {{ version }}
 
 source:
-  - url: https://github.com/danielkaiser/{{ name }}/archive/v{{ version }}.tar.gz
+  - url: https://github.com/danielkaiser/python-chromedriver-binary/archive/v{{ version }}.tar.gz
     sha256: f64a726e7eeeb4e405f82571402fea58f4d0610027e7579ef8f9fa45dc25cce9
-  - url: https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/{{ chromedriver_version }}/linux64/chromedriver-linux64.zip  # [linux]
-    sha256: 32956bba641abaac24c19f7e230ba6a23ddebb11296b91dcd7e0a4a5551c24f8  # [linux]
-  - url: https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/{{ chromedriver_version }}/mac-x64/chromedriver-mac-x64.zip  # [osx]
-    sha256: 049aac672115b884734c3118f6f81a540eddbfa716fe78498540f4586222401d  # [osx]
-  - url: https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/{{ chromedriver_version }}/win32/chromedriver-win32.zip  # [win]
-    sha256: 4e835df4d567540524c098db23ddd16f7fca0392d139f0a718d0961c2ae2a228  # [win]
+  {% if noarch_platform == "linux" %}
+  - url: https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/{{ chromedriver_version }}/linux64/chromedriver-linux64.zip
+    sha256: 32956bba641abaac24c19f7e230ba6a23ddebb11296b91dcd7e0a4a5551c24f8
+  {% elif noarch_platform == "osx" %}
+  - url: https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/{{ chromedriver_version }}/mac-x64/chromedriver-mac-x64.zip
+    sha256: 049aac672115b884734c3118f6f81a540eddbfa716fe78498540f4586222401d
+  {% elif noarch_platform == "win" %}
+  - url: https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/{{ chromedriver_version }}/win32/chromedriver-win32.zip
+    sha256: 4e835df4d567540524c098db23ddd16f7fca0392d139f0a718d0961c2ae2a228
+  {% endif %}
 
 build:
-  number: 0
+  number: 1
+  noarch: python
   script:
-    - chmod +x chromedriver  # [unix]
-    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vv
+    {% if noarch_platform in ["osx", "linux"] %}
+    - chmod +x chromedriver
+    {% endif %}
+    - {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
   entry_points:
     - chromedriver-path = chromedriver_binary.utils:print_chromedriver_path
-  binary_relocation: false  # [osx]
+  {% if noarch_platform == "osx" %}
+  binary_relocation: false
+  {% endif %}
 
 requirements:
   host:
-    - python
     - pip
-  run:
-    - python
+    - python >=3.7
     - setuptools
+  run:
+    - __{{ noarch_platform }}
+    - python >=3.7
 
 test:
+  requires:
+    - pip
   imports:
     - chromedriver_binary
   commands:
+    - pip check
     - chromedriver-path
-    # TODO: investigate on linux, (at least) libxcb is missing... 
-    - $(chromedriver-path)/chromedriver --version  # [osx]
+    # TODO: investigate on linux, (at least) libxcb is missing...
+    {% if noarch_platform == "osx" %}
+    - $(chromedriver-path)/chromedriver --version
+    {% endif %}
 
 about:
   home: https://github.com/danielkaiser/python-chromedriver-binary
