@@ -10,11 +10,5 @@ macos_machine:
 - x86_64-apple-darwin13.4.0
 noarch_platform:
 - osx
-pin_run_as_build:
-  python:
-    min_pin: x.x
-    max_pin: x.x
-python:
-- 3.13.* *_cp313
 python_min:
 - '3.9'
