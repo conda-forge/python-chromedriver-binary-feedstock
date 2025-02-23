@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   version: 135.0.7030.0.0
-  chromedriver_version: ${{ version[:-2] }}
+  chromedriver_version: ${{ (version | split("."))[:-1] | join(".") }}
 
 package:
   name: python-chromedriver-binary
