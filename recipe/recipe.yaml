@@ -28,6 +28,10 @@ source:
 build:
   number: 0
   noarch: python
+  dynamic_linking:
+    binary_relocation:
+      if: noarch_platform == "osx"
+      then: false
   script:
     - if: noarch_platform != "win"
       then:
