@@ -13,7 +13,6 @@ Downloads and installs the chromedriver binary for automated
 testing of webapps. The installer supports Linux, MacOS and Windows
 operating systems.
 
-
 Current build status
 ====================
 
