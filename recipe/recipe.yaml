@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   version: 135.0.7030.0.0
-  chromedriver_version: ${{ (version | split("."))[:-1] | join(".") }}
+  chromedriver_version: ${{ (version | split("."))[0:4] | join(".") }}
 
 package:
   name: python-chromedriver-binary
@@ -55,16 +55,15 @@ tests:
       run:
         - python ${{ python_min }}.*
     script:
-      - chromedriver-path
-      - if: noarch_platform == "osx"
-        then:
-          # TODO: investigate on linux, (at least) libxcb is missing...
-          - $(chromedriver-path)/chromedriver --version
+      - python run_test.py
 
 about:
   homepage: https://github.com/danielkaiser/python-chromedriver-binary
   license: MIT
-  license_file: LICENSE
+  license_file:
+    - LICENSE
+    - LICENSE.chromedriver
+    - THIRD_PARTY_NOTICES.chromedriver
   summary: Downloads and installs the chromedriver binary version
   description: |
     Downloads and installs the chromedriver binary for automated
