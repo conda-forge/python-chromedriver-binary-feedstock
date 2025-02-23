@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
+schema_version: 1
+
+context:
+  version: 135.0.7030.0.0
+  chromedriver_version: ${{ version[:-2] }}
+
+package:
+  name: python-chromedriver-binary
+  version: ${{ version }}
+
+source:
+  - url: https://github.com/danielkaiser/python-chromedriver-binary/archive/v${{ version }}.tar.gz
+    sha256: 58f8de6a4becd98e7e2826e7b3d23547d7d728069f9c29309fde7b2fc19a401e
+  - if: noarch_platform == "linux"
+    then:
+      url: https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/${{ chromedriver_version }}/linux64/chromedriver-linux64.zip
+      sha256: 06a7389b28285fae19df0ff692454d36604ccca0fc57d418e63ea1fd53c0835f
+  - if: noarch_platform == "osx"
+    then:
+      url: https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/${{ chromedriver_version }}/mac-x64/chromedriver-mac-x64.zip
+      sha256: b196bb8ba724fced421442350af1f437eac236b1a8cf2bd1f60b1ebd0da458a8
+  - if: noarch_platform == "win"
+    then:
+      url: https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/${{ chromedriver_version }}/win32/chromedriver-win32.zip
+      sha256: da06d76c45ae3ef1bebaa11b7724119bccb875e124f5c1b40db893ea55b324f5
+
+build:
+  number: 0
+  noarch: python
+  script:
+    - if: noarch_platform != "win"
+      then:
+        - chmod +x chromedriver
+    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}.*
+    - setuptools
+  run:
+    - __${{ noarch_platform }}
+    - python >=${{ python_min }}
+
+tests:
+  - python:
+      pip_check: true
+      python_version: ${{ python_min }}.*
+      imports: chromedriver_binary
+  - files:
+      recipe:
+        - run_test.py
+    requirements:
+      run:
+        - python ${{ python_min }}.*
+    script:
+      - chromedriver-path
+      - if: noarch_platform == "osx"
+        then:
+          # TODO: investigate on linux, (at least) libxcb is missing...
+          - $(chromedriver-path)/chromedriver --version
+
+about:
+  homepage: https://github.com/danielkaiser/python-chromedriver-binary
+  license: MIT
+  license_file: LICENSE
+  summary: Downloads and installs the chromedriver binary version
+  description: |
+    Downloads and installs the chromedriver binary for automated
+    testing of webapps. The installer supports Linux, MacOS and Windows
+    operating systems.
+
+extra:
+  recipe-maintainers:
+    - williamjamir
+    - bollwyvl
