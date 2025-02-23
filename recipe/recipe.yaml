@@ -4,6 +4,7 @@ schema_version: 1
 context:
   version: 135.0.7030.0.0
   chromedriver_version: ${{ (version | split("."))[0:4] | join(".") }}
+  binary_relocation: ${{ false if noarch_platform == "osx" else false }}
 
 package:
   name: python-chromedriver-binary
@@ -29,9 +30,10 @@ build:
   number: 0
   noarch: python
   dynamic_linking:
-    binary_relocation:
-      if: noarch_platform == "osx"
-      then: false
+    binary_relocation: ${{ binary_relocation }}
+  python:
+    entry_points:
+      - chromedriver-path = chromedriver_binary.utils:print_chromedriver_path
   script:
     - if: noarch_platform != "win"
       then:
