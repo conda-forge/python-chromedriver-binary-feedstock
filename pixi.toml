@@ -7,7 +7,7 @@
 
 [project]
 name = "python-chromedriver-binary-feedstock"
-version = "3.50.0"  # conda-smithy version used to generate this file
+version = "3.50.1"  # conda-smithy version used to generate this file
 description = "Pixi configuration for conda-forge/python-chromedriver-binary-feedstock"
 authors = ["@conda-forge/python-chromedriver-binary"]
 channels = ["conda-forge"]
