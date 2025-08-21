@@ -8,8 +8,12 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_:
-        CONFIG: linux_64_
+      linux_64_channel_sourcesconda-forge:
+        CONFIG: linux_64_channel_sourcesconda-forge
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+      linux_64_channel_sourcesconda-forge,conda-forge/label/python_rc:
+        CONFIG: linux_64_channel_sourcesconda-forge,conda-forge/label/python_rc
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
   timeoutInMinutes: 360
