@@ -26,7 +26,7 @@ source:
       sha256: 81ad0e01b31ae2054e22b72535b686f1a63d170d865b6bb809d0977b760fbcb8
 
 build:
-  number: 0
+  number: 1
   noarch: python
   dynamic_linking:
     binary_relocation: ${{ false if noarch_platform == "osx" else true }}
