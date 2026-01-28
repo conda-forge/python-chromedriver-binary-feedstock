@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "146.0.7651.0.0"
+  version: "146.0.7654.0.0"
   chromedriver_version: ${{ (version | split("."))[0:4] | join(".") }}
 
 package:
@@ -11,19 +11,19 @@ package:
 
 source:
   - url: https://github.com/danielkaiser/python-chromedriver-binary/archive/v${{ version }}.tar.gz
-    sha256: 75cf2d0426cf1e801527a51e079aaba23fedeed68ca75fafa1bd86b61232b91a
+    sha256: 99a728fdd4da831e7d4a0bee576ad193ab8ba83aed6fb4f08694ea6dd531c5e4
   - if: noarch_platform == "linux"
     then:
       url: https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/${{ chromedriver_version }}/linux64/chromedriver-linux64.zip
-      sha256: bc565633ac1e76a097130abff1deb3b954243d76416a4a76464e56e3ed7225c0
+      sha256: 9fc2f867d139a026e70f152312943bb585a30d87825e805dd30a9e51892be21a
   - if: noarch_platform == "osx"
     then:
       url: https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/${{ chromedriver_version }}/mac-x64/chromedriver-mac-x64.zip
-      sha256: 509f5eb9ad73bbaef999d1146b9388db67f3e11e7e2e3e78af91f908a4ff4868
+      sha256: 56213ca1dd686f20d43b4cce3cb62737a657b804b40cb9dc4204d078e434ddb1
   - if: noarch_platform == "win"
     then:
       url: https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/${{ chromedriver_version }}/win32/chromedriver-win32.zip
-      sha256: b6fa8fe31934892c5d1b2be7e4d2a3388457e2eb90a8e45ecba089f43af0b159
+      sha256: 32dbc31f2764f77e25dea856faf292aa69a8a549b7cab82f5b2d304e4dbf6e5f
 
 build:
   number: 0
