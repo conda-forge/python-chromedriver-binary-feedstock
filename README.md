@@ -3,11 +3,13 @@ About python-chromedriver-binary-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/python-chromedriver-binary-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/danielkaiser/python-chromedriver-binary
+Home: https://pypi.org/project/chromedriver-binary
 
 Package license: MIT
 
 Summary: Downloads and installs the chromedriver binary version
+
+Development: https://github.com/danielkaiser/python-chromedriver-binary
 
 Downloads and installs the chromedriver binary for automated
 testing of webapps. The installer supports Linux, MacOS and Windows
@@ -18,11 +20,50 @@ Current build status
 
 
 <table><tr>
-    <td>All platforms:</td>
+    <td>GitHub Actions</td>
     <td>
       <a href="https://github.com/conda-forge/python-chromedriver-binary-feedstock/actions/workflows/conda-build.yml">
         <img src="https://github.com/conda-forge/python-chromedriver-binary-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
       </a>
+    </td>
+  </tr>
+    
+  <tr>
+    <td>Azure</td>
+    <td>
+      <details>
+        <summary>
+          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5711&branchName=main">
+            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/python-chromedriver-binary-feedstock?branchName=main">
+          </a>
+        </summary>
+        <table>
+          <thead><tr><th>Variant</th><th>Status</th></tr></thead>
+          <tbody><tr>
+              <td>osx_64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5711&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/python-chromedriver-binary-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5711&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/python-chromedriver-binary-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5711&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/python-chromedriver-binary-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
     </td>
   </tr>
 </table>
