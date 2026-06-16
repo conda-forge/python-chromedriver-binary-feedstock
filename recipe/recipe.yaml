@@ -37,6 +37,9 @@ build:
     - if: noarch_platform != "win"
       then:
         - chmod +x chromedriver
+      else:
+        # see https://conda-forge.zulipchat.com/#narrow/channel/457337-general/topic/.60pip.20install.60.20failing.20on.20Windows.20today/with/603912616
+        - set PIP_USE_DEPRECATED="legacy-certs"
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
 
 requirements:
