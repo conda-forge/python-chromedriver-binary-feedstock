@@ -31,7 +31,7 @@ source:
       sha256: 52028fd3cb704bd80ba3ba578bbadb131b494644c0c8a32836b655c17956eaee
 
 build:
-  number: 0
+  number: 1
   dynamic_linking:
     binary_relocation: ${{ not osx }}
   python:
